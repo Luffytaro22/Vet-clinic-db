@@ -67,3 +67,33 @@ vet_clinic-*# WHERE weight_kg < 0;
 UPDATE 4
 vet_clinic=*# COMMIT;
 COMMIT
+
+* Write queries to answer the following questions:
+- How many animals are there?
+	vet_clinic=# SELECT COUNT(id)
+	vet_clinic-# FROM animals;
+
+- How many animals have never tried to escape?
+	vet_clinic=# SELECT COUNT(id)
+	vet_clinic-# FROM animals
+	vet_clinic-# WHERE escape_attempts = 0;
+
+- What is the average weight of animals?
+	vet_clinic=# SELECT AVG(weight_kg)
+	vet_clinic-# FROM animals;
+
+- Who escapes the most, neutered or not neutered animals?
+	vet_clinic=# SELECT neutered, COUNT(neutered)
+	vet_clinic-# FROM animals
+	vet_clinic-# GROUP BY neutered;
+
+- What is the minimum and maximum weight of each type of animal?
+	vet_clinic=# SELECT species, MIN(weight_kg), MAX(weight_kg)
+	vet_clinic-# FROM animals
+	vet_clinic-# GROUP BY species;
+
+- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
+	vet_clinic=# SELECT species, AVG(escape_attempts)
+	vet_clinic-# FROM animals
+	vet_clinic-# WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
+	vet_clinic-# GROUP BY species;
