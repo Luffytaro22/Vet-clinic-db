@@ -41,3 +41,29 @@ vet_clinic=*# DELETE FROM animals;
 DELETE 11
 vet_clinic=*# ROLLBACK;
 ROLLBACK
+
+*Inside a transaction:
+- Delete all animals born after Jan 1st, 2022.
+- Create a savepoint for the transaction.
+- Update all animals' weight to be their weight multiplied by -1.
+- Rollback to the savepoint
+- Update all animals' weights that are negative to be their weight multiplied by -1.
+- Commit transaction
+vet_clinic=# BEGIN;
+BEGIN
+vet_clinic=*# DELETE FROM animals
+vet_clinic-*# WHERE date_of_birth > '2022-01-01';
+DELETE 1
+vet_clinic=*# SAVEPOINT SP1;
+SAVEPOINT
+vet_clinic=*# UPDATE animals
+vet_clinic-*# SET weight_kg = weight_kg * -1;
+UPDATE 10
+vet_clinic=*# ROLLBACK TO SP1;
+ROLLBACK
+vet_clinic=*# UPDATE animals
+vet_clinic-*# SET weight_kg = weight_kg * -1
+vet_clinic-*# WHERE weight_kg < 0;
+UPDATE 4
+vet_clinic=*# COMMIT;
+COMMIT
