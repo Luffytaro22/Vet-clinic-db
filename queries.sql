@@ -33,3 +33,11 @@ vet_clinic-*# WHERE species IS NULL;
 UPDATE 5
 vet_clinic=*# COMMIT;
 COMMIT
+
+* Delete all the records and rollback
+vet_clinic=# BEGIN;
+BEGIN
+vet_clinic=*# DELETE FROM animals;
+DELETE 11
+vet_clinic=*# ROLLBACK;
+ROLLBACK
