@@ -19,3 +19,17 @@ vet_clinic-*# SET species = 'unspecified';
 UPDATE 11
 vet_clinic=*# ROLLBACK;
 ROLLBACK
+
+* Update the species column with 'digimon' or 'pokemon' and make a commit.
+vet_clinic=# BEGIN;
+BEGIN
+vet_clinic=*# UPDATE animals
+vet_clinic-*# SET species = 'digimon'
+vet_clinic-*# WHERE name LIKE '%mon';
+UPDATE 6
+vet_clinic=*# UPDATE animals
+vet_clinic-*# SET species = 'pokemon'
+vet_clinic-*# WHERE species IS NULL;
+UPDATE 5
+vet_clinic=*# COMMIT;
+COMMIT
