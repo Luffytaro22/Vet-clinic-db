@@ -20,3 +20,12 @@ vet_clinic-# ('Boarmon', TO_DATE('Jun 7, 2005', 'Mon DD YYYY'), 7, true, 20.4, '
 vet_clinic-# ('Blossom', TO_DATE('Oct 13, 1998', 'Mon DD YYYY'), 3, true, 17, 'Animal'),
 vet_clinic-# ('Dito', TO_DATE('May 14, 2022', 'Mon DD YYYY'), 4, true, 22, 'Animal');
 INSERT 0 7
+
+* Create a table named owners:
+vet_clinic=# CREATE TABLE owners(
+vet_clinic(# id         INT,
+vet_clinic(# full_name  varchar(100),
+vet_clinic(# age        INT,
+vet_clinic(# PRIMARY KEY(id)
+vet_clinic(# );
+CREATE TABLE
