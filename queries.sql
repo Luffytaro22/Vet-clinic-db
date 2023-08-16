@@ -97,3 +97,48 @@ COMMIT
 	vet_clinic-# FROM animals
 	vet_clinic-# WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 	vet_clinic-# GROUP BY species;
+
+* Write queries (using JOIN) to answer the following questions:
+- What animals belong to Melody Pond?
+	vet_clinic=# SELECT animals.name, animals.owner_id, owners.full_name, owners.id
+	vet_clinic-# FROM animals
+	vet_clinic-# INNER JOIN owners
+	vet_clinic-# ON owners.id = animals.owner_id
+	vet_clinic-# WHERE owners.full_name = 'Melody Pond';
+- List of all animals that are pokemon (their type is Pokemon).
+	vet_clinic=# SELECT animals.name, animals.species_id, species.id, species.name
+	vet_clinic-# FROM animals
+	vet_clinic-# INNER JOIN species
+	vet_clinic-# ON species.id = animals.species_id
+	vet_clinic-# WHERE species.name = 'Pokemon';
+- List all owners and their animals, remember to include those that don't own any animal.
+	vet_clinic=# SELECT animals.name, owners.full_name, animals.owner_id, owners.id
+	vet_clinic-# FROM animals
+	vet_clinic-# FULL OUTER JOIN owners
+	vet_clinic-# ON animals.owner_id = owners.id;
+- How many animals are there per species?
+	vet_clinic=# SELECT species.name, COUNT(animals.species_id)
+	vet_clinic-# FROM animals
+	vet_clinic-# INNER JOIN species
+	vet_clinic-# ON animals.species_id = species.id
+	vet_clinic-# GROUP BY species.name;
+- List all Digimon owned by Jennifer Orwell.
+	vet_clinic=# SELECT animals.name, owners.full_name
+	vet_clinic-# FROM animals
+	vet_clinic-# INNER JOIN owners
+	vet_clinic-# ON owners.id = animals.owner_id
+	vet_clinic-# INNER JOIN species
+	vet_clinic-# ON species.id = animals.species_id
+	vet_clinic-# WHERE owners.full_name = 'Jennifer Orwell' AND species.name = 'Digimon';
+- List all animals owned by Dean Winchester that haven't tried to escape.
+	vet_clinic=# SELECT animals.name, owners.full_name
+	vet_clinic-# FROM animals
+	vet_clinic-# INNER JOIN owners
+	vet_clinic-# ON owners.id = animals.owner_id
+	vet_clinic-# WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
+- Who owns the most animals?
+	vet_clinic=# SELECT owners.full_name, COUNT(animals.owner_id)
+	vet_clinic-# FROM animals
+	vet_clinic-# FULL OUTER JOIN owners
+	vet_clinic-# ON owners.id = animals.owner_id
+	vet_clinic-# GROUP BY owners.full_name;
