@@ -24,7 +24,7 @@ vet_clinic-# ADD species        varchar(50);
 
 * Create a table named owners:
 vet_clinic=# CREATE TABLE owners(
-vet_clinic(# id         INT,
+vet_clinic(# id         INT  GENERATED ALWAYS AS IDENTITY,
 vet_clinic(# full_name  varchar(100),
 vet_clinic(# age        INT,
 vet_clinic(# PRIMARY KEY(id)
@@ -33,7 +33,7 @@ CREATE TABLE
 
 * Create a table named species:
 vet_clinic=# CREATE TABLE species(
-vet_clinic(# id         INT,
+vet_clinic(# id         INT  GENERATED ALWAYS AS IDENTITY,
 vet_clinic(# name       varchar(50),
 vet_clinic(# PRIMARY KEY(id)
 vet_clinic(# );
