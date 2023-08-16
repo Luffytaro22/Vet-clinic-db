@@ -20,3 +20,19 @@ vet_clinic-# ('Boarmon', TO_DATE('Jun 7, 2005', 'Mon DD YYYY'), 7, true, 20.4, '
 vet_clinic-# ('Blossom', TO_DATE('Oct 13, 1998', 'Mon DD YYYY'), 3, true, 17, 'Animal'),
 vet_clinic-# ('Dito', TO_DATE('May 14, 2022', 'Mon DD YYYY'), 4, true, 22, 'Animal');
 INSERT 0 7
+
+* Insert data in owners table:
+vet_clinic=# INSERT INTO owners(full_name, age)
+vet_clinic-# VALUES('Sam Smith', 34),
+vet_clinic-# ('Jennifer Orwell', 19),
+vet_clinic-# ('Bob', 45),
+vet_clinic-# ('Melody Pond', 77),
+vet_clinic-# ('Dean Winchester', 14),
+vet_clinic-# ('Jodie Whittaker', 38);
+INSERT 0 6
+
+* Insert data in species table:
+vet_clinic=# INSERT INTO species(name)
+vet_clinic-# VALUES('Pokemon'),
+vet_clinic-# ('Digimon');
+INSERT 0 2
