@@ -137,8 +137,10 @@ COMMIT
 	vet_clinic-# ON owners.id = animals.owner_id
 	vet_clinic-# WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
 - Who owns the most animals?
-	vet_clinic=# SELECT owners.full_name, COUNT(animals.owner_id)
+	vet_clinic=# SELECT owners.full_name, COUNT(animals.owner_id) AS animal_count
 	vet_clinic-# FROM animals
 	vet_clinic-# FULL OUTER JOIN owners
-	vet_clinic-# ON owners.id = animals.owner_id
-	vet_clinic-# GROUP BY owners.full_name;
+	vet_clinic-# ON animals.owner_id = owners.id
+	vet_clinic-# GROUP BY owners.full_name
+	vet_clinic-# ORDER BY animal_count DESC
+	vet_clinic-# LIMIT 1;
