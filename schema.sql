@@ -21,3 +21,37 @@ vet_clinic(# );
 
 vet_clinic=# ALTER TABLE animals
 vet_clinic-# ADD species        varchar(50);
+
+* Create a table named owners:
+vet_clinic=# CREATE TABLE owners(
+vet_clinic(# id         INT,
+vet_clinic(# full_name  varchar(100),
+vet_clinic(# age        INT,
+vet_clinic(# PRIMARY KEY(id)
+vet_clinic(# );
+CREATE TABLE
+
+* Create a table named species:
+vet_clinic=# CREATE TABLE species(
+vet_clinic(# id         INT,
+vet_clinic(# name       varchar(50),
+vet_clinic(# PRIMARY KEY(id)
+vet_clinic(# );
+CREATE TABLE
+
+* Modify animals table:
+
+- Remove column species:
+vet_clinic=# ALTER TABLE animals
+vet_clinic-# DROP COLUMN species;
+ALTER TABLE
+
+-Add column species_id which is a foreign key referencing species table:
+vet_clinic=# ALTER TABLE animals
+vet_clinic-# ADD species_id INT REFERENCES species(id);
+ALTER TABLE
+
+-Add column owner_id which is a foreign key referencing the owners table:
+vet_clinic=# ALTER TABLE animals
+vet_clinic-# ADD owner_id INT REFERENCES owners(id);
+ALTER TABLE
