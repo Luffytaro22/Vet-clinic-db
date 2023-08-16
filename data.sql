@@ -36,3 +36,20 @@ vet_clinic=# INSERT INTO species(name)
 vet_clinic-# VALUES('Pokemon'),
 vet_clinic-# ('Digimon');
 INSERT 0 2
+
+* Modify your inserted animals so it includes the species_id:
+vet_clinic=# UPDATE animals
+vet_clinic-# SET species_id = CASE
+vet_clinic-# WHEN name LIKE '%mon' THEN 2
+vet_clinic-# ELSE 1
+vet_clinic-# END;
+
+* Modify your inserted animals to include owner information (owner_id):
+vet_clinic=# UPDATE animals
+vet_clinic-# SET owner_id = CASE
+vet_clinic-# WHEN name = 'Agumon' THEN 1
+vet_clinic-# WHEN name = 'Gabumon' OR name = 'Pikachu' THEN 2
+vet_clinic-# WHEN name = 'Devimon' OR name = 'Plantmon' THEN 3
+vet_clinic-# WHEN name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom' THEN 4
+vet_clinic-# WHEN name = 'Angemon' OR name = 'Boarmon' THEN 5
+vet_clinic-# END;
