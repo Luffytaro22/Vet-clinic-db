@@ -29,3 +29,11 @@ vet_clinic(# age        INT,
 vet_clinic(# PRIMARY KEY(id)
 vet_clinic(# );
 CREATE TABLE
+
+* Create a table named species:
+vet_clinic=# CREATE TABLE species(
+vet_clinic(# id         INT,
+vet_clinic(# name       varchar(50),
+vet_clinic(# PRIMARY KEY(id)
+vet_clinic(# );
+CREATE TABLE
