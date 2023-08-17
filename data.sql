@@ -68,3 +68,27 @@ vet_clinic-# VALUES(1, 1),
 vet_clinic-# (1, 3), (2, 3),
 vet_clinic-# (2, 4);
 INSERT 0 4
+
+* Insert data in visits:
+vet_clinic=# INSERT INTO visits(animals_id, vets_id, visit_date)
+vet_clinic-# VALUES(1, 1, TO_DATE('May 24, 2020', 'Mon DD YYYY')),
+vet_clinic-# (1, 3, TO_DATE('Jul 22, 2020', 'Mon DD YYYY')),
+vet_clinic-# (2, 4, TO_DATE('Feb 2, 2021', 'Mon DD YYYY')),
+vet_clinic-# (3, 2, TO_DATE('Jan 5, 2020', 'Mon DD YYYY')),
+vet_clinic-# (3, 2, TO_DATE('Mar 8, 2020', 'Mon DD YYYY')),
+vet_clinic-# (3, 2, TO_DATE('May 14, 2020', 'Mon DD YYYY')),
+vet_clinic-# (4, 3, TO_DATE('May 4, 2021', 'Mon DD YYYY')),
+vet_clinic-# (5, 4, TO_DATE('Feb 24, 2021', 'Mon DD YYYY')),
+vet_clinic-# (6, 2, TO_DATE('Dec 21, 2019', 'Mon DD YYYY')),
+vet_clinic-# (6, 1, TO_DATE('Aug 10, 2020', 'Mon DD YYYY')),
+vet_clinic-# (6, 2, TO_DATE('Apr 7, 2021', 'Mon DD YYYY')),
+vet_clinic-# (7, 3, TO_DATE('Sep 29, 2019', 'Mon DD YYYY')),
+vet_clinic-# (8, 4, TO_DATE('Oct 3, 2020', 'Mon DD YYYY')),
+vet_clinic-# (8, 4, TO_DATE('Nov 4, 2020', 'Mon DD YYYY')),
+vet_clinic-# (9, 2, TO_DATE('Jan 24, 2019', 'Mon DD YYYY')),
+vet_clinic-# (9, 2, TO_DATE('May 15, 2019', 'Mon DD YYYY')),
+vet_clinic-# (9, 2, TO_DATE('Feb 27, 2020', 'Mon DD YYYY')),
+vet_clinic-# (9, 2, TO_DATE('Aug 3, 2020', 'Mon DD YYYY')),
+vet_clinic-# (10, 3, TO_DATE('May 24, 2020', 'Mon DD YYYY')),
+vet_clinic-# (10, 1, TO_DATE('Jan 11, 2021', 'Mon DD YYYY'));
+INSERT 0 20
