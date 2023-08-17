@@ -55,3 +55,29 @@ ALTER TABLE
 vet_clinic=# ALTER TABLE animals
 vet_clinic-# ADD owner_id INT REFERENCES owners(id);
 ALTER TABLE
+
+* Create a vets table:
+vet_clinic=# CREATE TABLE vets(
+vet_clinic(# id         INT GENERATED ALWAYS AS IDENTITY,
+vet_clinic(# name       varchar(50),
+vet_clinic(# age        INT,
+vet_clinic(# date_of_graduation         date,
+vet_clinic(# PRIMARY KEY(id)
+vet_clinic(# );
+CREATE TABLE
+
+* Create specializations join table:
+vet_clinic=# CREATE TABLE specializations(
+vet_clinic(# species_id         INT REFERENCES species(id),
+vet_clinic(# vets_id            INT REFERENCES vets(id),
+vet_clinic(# PRIMARY KEY(species_id, vets_id)
+vet_clinic(# );
+CREATE TABLE
+
+* Create visits join table:
+vet_clinic=# CREATE TABLE visits(
+vet_clinic(# animals_id         INT REFERENCES animals(id),
+vet_clinic(# vets_id            INT REFERENCES vets(id),
+vet_clinic(# visit_date         date,
+vet_clinic(# PRIMARY KEY(animals_id, vets_id, visit_date)
+vet_clinic(# );

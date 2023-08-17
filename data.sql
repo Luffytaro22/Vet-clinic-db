@@ -53,3 +53,42 @@ vet_clinic-# WHEN name = 'Devimon' OR name = 'Plantmon' THEN 3
 vet_clinic-# WHEN name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom' THEN 4
 vet_clinic-# WHEN name = 'Angemon' OR name = 'Boarmon' THEN 5
 vet_clinic-# END;
+
+* Insert data in vets:
+vet_clinic=# INSERT INTO vets(name, age, date_of_graduation)
+vet_clinic-# VALUES('William Tatcher', 45, TO_DATE('Apr 23, 2000', 'Mon DD YYYY')),
+vet_clinic-# ('Maisy Smith', 26, TO_DATE('Jan 17, 2019', 'Mon DD YYYY')),
+vet_clinic-# ('Stephanie Mendez', 64, TO_DATE('May 4, 1981', 'Mon DD YYYY')),
+vet_clinic-# ('Jack Harkness', 38, TO_DATE('Jun 8, 2008', 'Mon DD YYYY'));
+INSERT 0 4
+
+* Insert data in specializations:
+vet_clinic=# INSERT INTO specializations(species_id, vets_id)
+vet_clinic-# VALUES(1, 1),
+vet_clinic-# (1, 3), (2, 3),
+vet_clinic-# (2, 4);
+INSERT 0 4
+
+* Insert data in visits:
+vet_clinic=# INSERT INTO visits(animals_id, vets_id, visit_date)
+vet_clinic-# VALUES(1, 1, TO_DATE('May 24, 2020', 'Mon DD YYYY')),
+vet_clinic-# (1, 3, TO_DATE('Jul 22, 2020', 'Mon DD YYYY')),
+vet_clinic-# (2, 4, TO_DATE('Feb 2, 2021', 'Mon DD YYYY')),
+vet_clinic-# (3, 2, TO_DATE('Jan 5, 2020', 'Mon DD YYYY')),
+vet_clinic-# (3, 2, TO_DATE('Mar 8, 2020', 'Mon DD YYYY')),
+vet_clinic-# (3, 2, TO_DATE('May 14, 2020', 'Mon DD YYYY')),
+vet_clinic-# (4, 3, TO_DATE('May 4, 2021', 'Mon DD YYYY')),
+vet_clinic-# (5, 4, TO_DATE('Feb 24, 2021', 'Mon DD YYYY')),
+vet_clinic-# (6, 2, TO_DATE('Dec 21, 2019', 'Mon DD YYYY')),
+vet_clinic-# (6, 1, TO_DATE('Aug 10, 2020', 'Mon DD YYYY')),
+vet_clinic-# (6, 2, TO_DATE('Apr 7, 2021', 'Mon DD YYYY')),
+vet_clinic-# (7, 3, TO_DATE('Sep 29, 2019', 'Mon DD YYYY')),
+vet_clinic-# (8, 4, TO_DATE('Oct 3, 2020', 'Mon DD YYYY')),
+vet_clinic-# (8, 4, TO_DATE('Nov 4, 2020', 'Mon DD YYYY')),
+vet_clinic-# (9, 2, TO_DATE('Jan 24, 2019', 'Mon DD YYYY')),
+vet_clinic-# (9, 2, TO_DATE('May 15, 2019', 'Mon DD YYYY')),
+vet_clinic-# (9, 2, TO_DATE('Feb 27, 2020', 'Mon DD YYYY')),
+vet_clinic-# (9, 2, TO_DATE('Aug 3, 2020', 'Mon DD YYYY')),
+vet_clinic-# (10, 3, TO_DATE('May 24, 2020', 'Mon DD YYYY')),
+vet_clinic-# (10, 1, TO_DATE('Jan 11, 2021', 'Mon DD YYYY'));
+INSERT 0 20
