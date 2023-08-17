@@ -61,3 +61,10 @@ vet_clinic-# ('Maisy Smith', 26, TO_DATE('Jan 17, 2019', 'Mon DD YYYY')),
 vet_clinic-# ('Stephanie Mendez', 64, TO_DATE('May 4, 1981', 'Mon DD YYYY')),
 vet_clinic-# ('Jack Harkness', 38, TO_DATE('Jun 8, 2008', 'Mon DD YYYY'));
 INSERT 0 4
+
+* Insert data in specializations:
+vet_clinic=# INSERT INTO specializations(species_id, vets_id)
+vet_clinic-# VALUES(1, 1),
+vet_clinic-# (1, 3), (2, 3),
+vet_clinic-# (2, 4);
+INSERT 0 4
