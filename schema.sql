@@ -65,3 +65,11 @@ vet_clinic(# date_of_graduation         date,
 vet_clinic(# PRIMARY KEY(id)
 vet_clinic(# );
 CREATE TABLE
+
+* Create specializations join table:
+vet_clinic=# CREATE TABLE specializations(
+vet_clinic(# species_id         INT REFERENCES species(id),
+vet_clinic(# vets_id            INT REFERENCES vets(id),
+vet_clinic(# PRIMARY KEY(species_id, vets_id)
+vet_clinic(# );
+CREATE TABLE
