@@ -73,3 +73,11 @@ vet_clinic(# vets_id            INT REFERENCES vets(id),
 vet_clinic(# PRIMARY KEY(species_id, vets_id)
 vet_clinic(# );
 CREATE TABLE
+
+* Create visits join table:
+vet_clinic=# CREATE TABLE visits(
+vet_clinic(# animals_id         INT REFERENCES animals(id),
+vet_clinic(# vets_id            INT REFERENCES vets(id),
+vet_clinic(# visit_date         date,
+vet_clinic(# PRIMARY KEY(animals_id, vets_id, visit_date)
+vet_clinic(# );
