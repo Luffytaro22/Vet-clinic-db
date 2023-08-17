@@ -55,3 +55,13 @@ ALTER TABLE
 vet_clinic=# ALTER TABLE animals
 vet_clinic-# ADD owner_id INT REFERENCES owners(id);
 ALTER TABLE
+
+* Create a vets table:
+vet_clinic=# CREATE TABLE vets(
+vet_clinic(# id         INT GENERATED ALWAYS AS IDENTITY,
+vet_clinic(# name       varchar(50),
+vet_clinic(# age        INT,
+vet_clinic(# date_of_graduation         date,
+vet_clinic(# PRIMARY KEY(id)
+vet_clinic(# );
+CREATE TABLE
