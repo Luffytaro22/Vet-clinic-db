@@ -53,3 +53,11 @@ vet_clinic-# WHEN name = 'Devimon' OR name = 'Plantmon' THEN 3
 vet_clinic-# WHEN name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom' THEN 4
 vet_clinic-# WHEN name = 'Angemon' OR name = 'Boarmon' THEN 5
 vet_clinic-# END;
+
+* Insert data in vets:
+vet_clinic=# INSERT INTO vets(name, age, date_of_graduation)
+vet_clinic-# VALUES('William Tatcher', 45, TO_DATE('Apr 23, 2000', 'Mon DD YYYY')),
+vet_clinic-# ('Maisy Smith', 26, TO_DATE('Jan 17, 2019', 'Mon DD YYYY')),
+vet_clinic-# ('Stephanie Mendez', 64, TO_DATE('May 4, 1981', 'Mon DD YYYY')),
+vet_clinic-# ('Jack Harkness', 38, TO_DATE('Jun 8, 2008', 'Mon DD YYYY'));
+INSERT 0 4
