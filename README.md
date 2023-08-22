@@ -51,6 +51,9 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Diagrams
+![DB](./vet_clinic%20db.png)
+
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a id="live-demo"></a>
